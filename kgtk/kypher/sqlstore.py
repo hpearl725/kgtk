@@ -1263,7 +1263,7 @@ class SqliteStore(SqlStore):
                 # to not create any locking issues with local transactions:
                 sqlite3(self.dbfile, self.get_table_definition(schema))
         
-        separators = '\\t \\n'
+        separators = '"\\t" "\\n"'
         args = ['-cmd', '.mode ascii', '-cmd', '.separator ' + separators,
                 self.dbfile, '.import /dev/stdin %s' % table]
 
